@@ -17,7 +17,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! /Users/mwind/Documents/GitHub/Personal/full-stack/webapp/front-end/src/main.ts */
+      /*! /Users/toygan/Desktop/Mercedes/final/code-challange/webapp/front-end/src/main.ts */
       "zUnb");
       /***/
     },
@@ -158,10 +158,13 @@
 
               // Process checkout data here
               var num = this.calculateForm.get('number').value;
-              this.httpService.post('/v1/brackets/calculate', num).subscribe(function (data) {
+              var obj = {
+                brackets: num
+              };
+              this.httpService.post('/v1/brackets/calculate', obj).subscribe(function (data) {
                 _this.response = data;
                 console.warn('Response: ', num);
-                alert(_this.response);
+                alert('Valid combinations: ' + _this.response);
               });
             }
           }]);
@@ -204,7 +207,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<div>\n\n  <h1>Bracket Combination Calculator</h1>\n\n<form [formGroup]=\"calculateForm\" (ngSubmit)=\"onSubmit()\" >\n\n\n    <div>\n    <label for=\"number\">\n      Number\n    </label>\n    <input id=\"number\" type=\"text\" formControlName=\"number\">\n  </div>\n\n    <button class=\"button\" type=\"submit\">Calculate</button>\n\n\n</form>\n\n</div>";
+      __webpack_exports__["default"] = "<div>\n\n  <h1>Bracket Combination Calculator</h1>\n\n<form [formGroup]=\"calculateForm\" (ngSubmit)=\"onSubmit()\" >\n\n\n  <div>\n    <label for=\"number\">\n      Number\n    </label>\n    <input id=\"number\" type=\"number\" formControlName=\"number\">\n    <button class=\"button\" type=\"submit\" style=\"margin-left:1em\">Calculate</button>\n  </div>\n\n    \n\n\n</form>\n\n</div>";
       /***/
     },
 

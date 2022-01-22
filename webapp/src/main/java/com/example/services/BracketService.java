@@ -6,22 +6,23 @@ import javax.xml.rpc.ServiceException;
 /**
  * @author Toygan Sevim
  * @version 0.1
- * <p>
+ *
  * Bracket data interface class that will serve to the controller.
  */
 @Local
-public interface BracketService {
-	
+public interface BracketService
+{
+
     /**
-     * @param date - String
      * @return String
-     * @throws ServiceException
+     * @throws ServiceException illegal service ex.
      */
     String get() throws ServiceException;
-		
+
     /**
-     * @param date - String
+     * @param data - String
      * @return String
+     * @throws ServiceException Illegal service ex.
      */
     String bracketCalculation(String data) throws ServiceException;
 }

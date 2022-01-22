@@ -5,14 +5,15 @@
 <form [formGroup]="calculateForm" (ngSubmit)="onSubmit()" >
 
 
-    <div>
+  <div>
     <label for="number">
       Number
     </label>
-    <input id="number" type="text" formControlName="number">
+    <input id="number" type="number" formControlName="number">
+    <button class="button" type="submit" style="margin-left:1em">Calculate</button>
   </div>
 
-    <button class="button" type="submit">Calculate</button>
+    
 
 
 </form>

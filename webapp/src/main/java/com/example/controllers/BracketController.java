@@ -13,27 +13,41 @@ import javax.xml.rpc.ServiceException;
 
 import com.example.services.BracketService;
 
+/**
+ * @author toygan
+ * @version 0.1
+ * <p>
+ * Bracket controller for handling routes and messages.
+ */
 //  http://localhost:8080/webapp/v1/brackets
 @Path("/brackets")
-public class BracketController {
-			
+public class BracketController
+{
+
     private BracketService service;
-	
+
+    /**
+     * @param service bracket service
+     */
     @Inject
-	public BracketController(final BracketService service)
+    public BracketController(final BracketService service)
     {
-		this.service = service;
-	}
-	
-	public BracketController()
-	{
-		// TODO Auto-generated constructor stub
-	}
+        this.service = service;
+    }
 
+    /**
+     * Empty Constructor.
+     */
+    public BracketController()
+    {
+        // TODO Auto-generated constructor stub
+    }
 
+    //
     @GET
     @Path("/get")
-    public Response getStatus(@Context HttpHeaders headers) throws ServiceException {    	
+    public Response getStatus(@Context HttpHeaders headers) throws ServiceException
+    {
         return Response.status(Status.OK)
                 .entity(service.get())
                 .build();
@@ -42,7 +56,7 @@ public class BracketController {
     @POST
     @Path("/calculate")
     public Response calculateBrackets(String data) throws ServiceException
-    {        
+    {
         String result = service.bracketCalculation(data);
         return Response.status(Status.OK).entity(result).type(MediaType.TEXT_PLAIN).build();
     }

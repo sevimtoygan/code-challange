@@ -24,6 +24,7 @@ public class BracketServiceImpl implements BracketService {
     @Override
     public int bracketCalculation(Bracket bracket)
     {
+    	logger.info("calculating brackets with number: {}", bracket.getNumber());
     	
     	Integer counter = 0;
         int number = bracket.getNumber();

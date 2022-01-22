@@ -23,10 +23,11 @@ export class AppComponent {
   onSubmit(): void {
     // Process checkout data here
     const num = this.calculateForm.get('number').value;
-    this.httpService.post('/v1/brackets/calculate', num).subscribe(data => {
+    const obj = {brackets: num};
+    this.httpService.post('/v1/brackets/calculate', obj).subscribe(data => {
       this.response = data;
       console.warn('Response: ', num);
-      alert(this.response);
+      alert('Valid combinations: ' + this.response);
     });
 
   }
