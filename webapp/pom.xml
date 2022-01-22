@@ -12,23 +12,23 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-         <java.version>11</java.version>
+        <java.version>11</java.version>
         <junit.version>5.8.1</junit.version>
     </properties>
 
     <dependencies>
 
-<dependency>
-  <groupId>jakarta.xml.bind</groupId>
-  <artifactId>jakarta.xml.bind-api</artifactId>
-  <version>3.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.sun.xml.bind</groupId>
-  <artifactId>jaxb-impl</artifactId>
-  <version>3.0.0</version>
-  <scope>runtime</scope>
-</dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>3.0.0</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -53,62 +53,63 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.33</version>
         </dependency>
-        
-            <dependency>
-        <groupId>jakarta.platform</groupId>
-        <artifactId>jakarta.jakartaee-api</artifactId>
-        <version>8.0.0</version>
-        <scope>provided</scope>
-    </dependency>
-    <dependency>
-        <groupId>jakarta.xml.bind</groupId>
-        <artifactId>jakarta.xml.bind-api</artifactId>
-        <version>2.3.3</version>
-    </dependency>
- 
+
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <version>8.0.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.xml.bind</groupId>
+            <artifactId>jakarta.xml.bind-api</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
     </dependencies>
 
     <build>
-    	<finalName>${project.artifactId}</finalName>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
-        	<plugin>
-				<groupId>com.github.eirslett</groupId>
-				<artifactId>frontend-maven-plugin</artifactId>
-				<version>1.9.1</version>
-				<executions>
-					<execution>
-						<id>install node and npm</id>
-						<goals>
-							<goal>install-node-and-npm</goal>
-						</goals>
-						<configuration>
-							<nodeVersion>v12.9.1</nodeVersion>
-							<npmVersion>6.14.8</npmVersion>
-							<installDirectory>front-end</installDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>install-angular</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>install angular @angular/cli@10.1.6</arguments>
-							<workingDirectory>front-end</workingDirectory>
-						</configuration>
-					</execution>
-					<execution>
-						<id>build-angular</id>
-						<goals>
-							<goal>npm</goal>
-						</goals>
-						<configuration>
-							<arguments>run build-maven</arguments>
-							<workingDirectory>front-end</workingDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v12.9.1</nodeVersion>
+                            <npmVersion>6.14.8</npmVersion>
+                            <installDirectory>front-end</installDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>install-angular</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <arguments>install angular @angular/cli@10.1.6</arguments>
+                            <workingDirectory>front-end</workingDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>build-angular</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build-maven</arguments>
+                            <workingDirectory>front-end</workingDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -122,8 +123,8 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
                 <configuration>
-        			<failOnMissingWebXml>false</failOnMissingWebXml>    
-    			</configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
             </plugin>
         </plugins>
     </build>
