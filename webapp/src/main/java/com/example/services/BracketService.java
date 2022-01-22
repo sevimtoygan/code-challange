@@ -1,6 +1,7 @@
 package com.example.services;
 
 import javax.ejb.Local;
+import javax.xml.rpc.ServiceException;
 
 /**
  * @author Toygan Sevim
@@ -10,10 +11,17 @@ import javax.ejb.Local;
  */
 @Local
 public interface BracketService {
+	
+    /**
+     * @param date - String
+     * @return String
+     * @throws ServiceException
+     */
+    String get() throws ServiceException;
 		
     /**
      * @param date - String
      * @return String
      */
-    String bracketCalculation(String data);
+    String bracketCalculation(String data) throws ServiceException;
 }

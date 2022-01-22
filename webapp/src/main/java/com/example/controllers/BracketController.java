@@ -9,10 +9,11 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import javax.xml.rpc.ServiceException;
 
 import com.example.services.BracketService;
 
-//  http://localhost:8080/ejb-1.0-SNAPSHOT/v1/brackets
+//  http://localhost:8080/webapp/v1/brackets
 @Path("/brackets")
 public class BracketController {
 			
@@ -32,16 +33,15 @@ public class BracketController {
 
     @GET
     @Path("/get")
-    public Response getStatus(@Context HttpHeaders headers) {    	
-        String userAgent = headers.getRequestHeader("user-agent").get(0);
+    public Response getStatus(@Context HttpHeaders headers) throws ServiceException {    	
         return Response.status(Status.OK)
-                .entity("Webapp Status is called, userAgent : " + userAgent)
+                .entity(service.get())
                 .build();
     }
 
     @POST
     @Path("/calculate")
-    public Response calculateBrackets(String data)
+    public Response calculateBrackets(String data) throws ServiceException
     {        
         String result = service.bracketCalculation(data);
         return Response.status(Status.OK).entity(result).type(MediaType.TEXT_PLAIN).build();
